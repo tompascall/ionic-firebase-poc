@@ -70,7 +70,7 @@ angular.module('poc', ['ionic'])
 
 .directive('tutorList', function (tutorDataService) {
   return {
-    templateUrl: '../template/tutor-list-directive.html',
+    templateUrl: './template/tutor-list-directive.html',
     controller: function ($scope) {
       $scope.tutors = tutorDataService;
     }
