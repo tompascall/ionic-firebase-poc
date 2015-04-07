@@ -18,4 +18,22 @@ angular.module('poc', ['ionic'])
       StatusBar.styleDefault();
     }
   });
-});
+})
+
+.value('tutorDataService', [
+  {
+    name: 'math tutor 1'
+  },
+  {
+    name: 'math tutor 2'
+  },
+   {
+    name: 'math tutor 3'
+  },
+   {
+    name: 'math tutor 4'
+  },
+   {
+    name: 'math tutor 5'
+  }
+]);
