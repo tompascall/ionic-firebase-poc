@@ -27,13 +27,13 @@ angular.module('poc', ['ionic'])
   {
     name: 'math tutor 2'
   },
-   {
+  {
     name: 'math tutor 3'
   },
-   {
+  {
     name: 'math tutor 4'
   },
-   {
+  {
     name: 'math tutor 5'
   }
 ]);
