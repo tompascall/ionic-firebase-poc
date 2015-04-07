@@ -32,17 +32,6 @@
   "node"        : true,       // defines globals available when your code is running inside of the Node runtime environment
 
   "predef": [
-    "require",
-    "describe",
-    "describe.skip",
-    "describe.only",
-    "it",
-    "it.skip",
-    "it.only",
-    "before",
-    "after",
-    "beforeEach",
-    "afterEach",
     "angular",
     "window",
     "cordova",

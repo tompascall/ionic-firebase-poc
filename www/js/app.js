@@ -35,5 +35,44 @@ angular.module('poc', ['ionic'])
   },
   {
     name: 'math tutor 5'
+  },
+  {
+    name: 'math tutor 6'
+  },
+  {
+    name: 'math tutor 7'
+  },
+  {
+    name: 'math tutor 8'
+  },
+  {
+    name: 'math tutor 9'
+  },
+  {
+    name: 'math tutor 10'
+  },
+  {
+    name: 'math tutor 11'
+  },
+  {
+    name: 'math tutor 12'
+  },
+  {
+    name: 'math tutor 13'
+  },
+  {
+    name: 'math tutor 14'
+  },
+  {
+    name: 'math tutor 15'
   }
-]);
+])
+
+.directive('tutorList', function (tutorDataService) {
+  return {
+    templateUrl: '../template/tutor-list-directive.html',
+    controller: function ($scope) {
+      $scope.tutors = tutorDataService;
+    }
+  };
+});
