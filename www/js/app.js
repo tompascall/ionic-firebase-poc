@@ -22,18 +22,42 @@ angular.module('poc', ['ionic'])
 
 .value('tutorDataService', [
   {
-    name: 'math tutor 1'
+    name: 'maths tutor 1'
   },
   {
-    name: 'math tutor 2'
+    name: 'maths tutor 2'
   },
   {
-    name: 'math tutor 3'
+    name: 'maths tutor 3'
   },
   {
-    name: 'math tutor 4'
+    name: 'maths tutor 4'
   },
   {
-    name: 'math tutor 5'
+    name: 'maths tutor 5'
+  },
+  {
+    name: 'maths tutor 6'
+  },
+  {
+    name: 'maths tutor 7'
+  },
+  {
+    name: 'maths tutor 8'
+  },
+  {
+    name: 'maths tutor 9'
+  },
+  {
+    name: 'maths tutor 10'
   }
-]);
+])
+
+.directive('tutorList', function (tutorDataService) {
+  return {
+    templateUrl: './template/tutor-list-directive.html',
+    controller: function ($scope) {
+      $scope.tutors = tutorDataService;
+    }
+  };
+});
