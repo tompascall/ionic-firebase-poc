@@ -22,49 +22,34 @@ angular.module('poc', ['ionic'])
 
 .value('tutorDataService', [
   {
-    name: 'math tutor 1'
+    name: 'maths tutor 1'
   },
   {
-    name: 'math tutor 2'
+    name: 'maths tutor 2'
   },
   {
-    name: 'math tutor 3'
+    name: 'maths tutor 3'
   },
   {
-    name: 'math tutor 4'
+    name: 'maths tutor 4'
   },
   {
-    name: 'math tutor 5'
+    name: 'maths tutor 5'
   },
   {
-    name: 'math tutor 6'
+    name: 'maths tutor 6'
   },
   {
-    name: 'math tutor 7'
+    name: 'maths tutor 7'
   },
   {
-    name: 'math tutor 8'
+    name: 'maths tutor 8'
   },
   {
-    name: 'math tutor 9'
+    name: 'maths tutor 9'
   },
   {
-    name: 'math tutor 10'
-  },
-  {
-    name: 'math tutor 11'
-  },
-  {
-    name: 'math tutor 12'
-  },
-  {
-    name: 'math tutor 13'
-  },
-  {
-    name: 'math tutor 14'
-  },
-  {
-    name: 'math tutor 15'
+    name: 'maths tutor 10'
   }
 ])
 
