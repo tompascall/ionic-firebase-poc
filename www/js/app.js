@@ -22,43 +22,43 @@ angular.module('poc', ['ionic'])
 
 .value('tutorDataService', [
   {
-    name: 'maths tutor 1',
+    name: 'Kelly Barnett',
     rating: 5
   },
   {
-    name: 'maths tutor 2',
+    name: 'John Preston',
     rating: 4
   },
   {
-    name: 'maths tutor 3',
+    name: 'Priscilla Fowler',
     rating: 3
   },
   {
-    name: 'maths tutor 4',
+    name: 'George Roberts',
     rating: 2
   },
   {
-    name: 'maths tutor 5',
+    name: 'Jamie Middleton',
     rating: 1
   },
   {
-    name: 'maths tutor 6',
+    name: 'Carol Henderson',
     rating: 0
   },
   {
-    name: 'maths tutor 7',
+    name: 'Lucas Wong',
     rating: 1
   },
   {
-    name: 'maths tutor 8',
+    name: 'Brian Miske',
     rating: 2
   },
   {
-    name: 'maths tutor 9',
+    name: 'Katie Luddy',
     rating: 3
   },
   {
-    name: 'maths tutor 10',
+    name: 'John Moore',
     rating: 4
   }
 ])
