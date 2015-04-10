@@ -157,6 +157,6 @@ angular.module('poc', ['ionic'])
         }
       };
     },
-    template: '<p ng-bind="showedDescription" ng-click="toggleDescription()"></p>',
+    templateUrl: './template/description.html'
   };
 });
