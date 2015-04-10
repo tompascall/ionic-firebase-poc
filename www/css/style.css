@@ -1,1 +1,9 @@
 /* Empty. Add your own CSS if you like */
+
+.ion-android-star {
+  color: #ccc;
+}
+
+.filled-star {
+  color: orange;
+}

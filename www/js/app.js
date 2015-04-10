@@ -22,42 +22,72 @@ angular.module('poc', ['ionic'])
 
 .value('tutorDataService', [
   {
-    name: 'maths tutor 1'
+    name: 'Kelly Barnett',
+    rating: 5
   },
   {
-    name: 'maths tutor 2'
+    name: 'John Preston',
+    rating: 4
   },
   {
-    name: 'maths tutor 3'
+    name: 'Priscilla Fowler',
+    rating: 3
   },
   {
-    name: 'maths tutor 4'
+    name: 'George Roberts',
+    rating: 2
   },
   {
-    name: 'maths tutor 5'
+    name: 'Jamie Middleton',
+    rating: 1
   },
   {
-    name: 'maths tutor 6'
+    name: 'Carol Henderson',
+    rating: 0
   },
   {
-    name: 'maths tutor 7'
+    name: 'Lucas Wong',
+    rating: 1
   },
   {
-    name: 'maths tutor 8'
+    name: 'Brian Miske',
+    rating: 2
   },
   {
-    name: 'maths tutor 9'
+    name: 'Katie Luddy',
+    rating: 3
   },
   {
-    name: 'maths tutor 10'
+    name: 'John Moore',
+    rating: 4
   }
 ])
+
+.value('maxRating', 5)
 
 .directive('tutorList', function (tutorDataService) {
   return {
     templateUrl: './template/tutor-list-directive.html',
     controller: function ($scope) {
       $scope.tutors = tutorDataService;
+    }
+  };
+})
+
+.directive('ratingStars', function (maxRating) {
+  return {
+    template:
+      '<i class="icon ion-android-star" ng-repeat="star in stars" ng-class="star"></i>',
+    scope: {
+      rating: '='
+    },
+    link: function (scope, element, attrs) {
+      scope.stars = [];
+      for (var i = 0; i < maxRating; i++) {
+        scope.stars.push({
+          'filled-star': i < scope.rating
+        });
+      }
     }
   };
 });
