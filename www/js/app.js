@@ -23,43 +23,53 @@ angular.module('poc', ['ionic'])
 .value('tutorDataService', [
   {
     name: 'Kelly Barnett',
-    rating: 5
+    rating: 5,
+    ageRangeLevel: '5-11'
   },
   {
     name: 'John Preston',
-    rating: 4
+    rating: 4,
+    ageRangeLevel: '11-18'
   },
   {
     name: 'Priscilla Fowler',
-    rating: 3
+    rating: 3,
+    ageRangeLevel: '18+'
   },
   {
     name: 'George Roberts',
-    rating: 2
+    rating: 2,
+    ageRangeLevel: '11-18'
   },
   {
     name: 'Jamie Middleton',
-    rating: 1
+    rating: 1,
+    ageRangeLevel: '11-18'
   },
   {
     name: 'Carol Henderson',
-    rating: 0
+    rating: 0,
+    ageRangeLevel: '5-11'
   },
   {
     name: 'Lucas Wong',
-    rating: 1
+    rating: 1,
+    ageRangeLevel: '5-11'
   },
   {
     name: 'Brian Miske',
-    rating: 2
+    rating: 2,
+    ageRangeLevel: '18+'
   },
   {
     name: 'Katie Luddy',
-    rating: 3
+    rating: 3,
+    ageRangeLevel: '18+'
   },
   {
     name: 'John Moore',
-    rating: 4
+    rating: 4,
+    ageRangeLevel: '5-11'
   }
 ])
 
