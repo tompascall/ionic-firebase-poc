@@ -55,13 +55,13 @@ angular.module('poc', ['ionic'])
     name: 'Carol Henderson',
     rating: 0,
     ageRangeLevel: '5-11',
-    profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_06.jpg'
+    profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_07.jpeg'
   },
   {
     name: 'Lucas Wong',
     rating: 1,
     ageRangeLevel: '5-11',
-    profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_07.jpeg'
+    profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_06.jpg'
   },
   {
     name: 'Brian Miske',

@@ -7,3 +7,7 @@
 .filled-star {
   color: orange;
 }
+
+img {
+  border-radius: 5px;
+}
