@@ -142,7 +142,7 @@ angular.module('poc', ['ionic'])
       var controller = this;
       controller.longDescription = false;
       controller.getShortDescription = function () {
-        return $scope.description.split(/\s+/).slice(0,3).join(' ') + '...';
+        return 'Description: ' + $scope.description.split(/\s+/).slice(0,3).join(' ') + '...';
       };
 
       $scope.showedDescription = controller.getShortDescription();
@@ -150,7 +150,7 @@ angular.module('poc', ['ionic'])
       $scope.toggleDescription = function () {
         $scope.longDescription=!$scope.longDescription;
         if ($scope.longDescription) {
-          $scope.showedDescription = $scope.description;
+          $scope.showedDescription = 'Description: ' + $scope.description;
         }
         else {
           $scope.showedDescription = controller.getShortDescription();
