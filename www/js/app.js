@@ -26,70 +26,80 @@ angular.module('poc', ['ionic'])
     rating: 5,
     ageRangeLevel: '5-11',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_01.jpg',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
   {
     name: 'John Preston',
     rating: 4,
     ageRangeLevel: '11-18',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_02.jpeg',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
   {
     name: 'Priscilla Fowler',
     rating: 3,
     ageRangeLevel: '18+',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_03.jpg',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
   {
     name: 'George Roberts',
     rating: 2,
     ageRangeLevel: '11-18',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_04.jpg',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
   {
     name: 'Jamie Middleton',
     rating: 1,
     ageRangeLevel: '11-18',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_05.jpg',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
   {
     name: 'Carol Henderson',
     rating: 0,
     ageRangeLevel: '5-11',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_07.jpeg',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
   {
     name: 'Lucas Wong',
     rating: 1,
     ageRangeLevel: '5-11',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_06.jpg',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
   {
     name: 'Brian Miske',
     rating: 2,
     ageRangeLevel: '18+',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_08.gif',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
   {
     name: 'Katie Luddy',
     rating: 3,
     ageRangeLevel: '18+',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_09.jpg',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
   {
     name: 'John Moore',
     rating: 4,
     ageRangeLevel: '5-11',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_10.jpg',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   }
 ])
 
@@ -119,5 +129,34 @@ angular.module('poc', ['ionic'])
         });
       }
     }
+  };
+})
+
+.directive('description', function () {
+  return {
+    replace: true,
+    scope: {
+      description: '=',
+    },
+    controller: function ($scope) {
+      var controller = this;
+      controller.longDescription = false;
+      controller.getShortDescription = function () {
+        return $scope.description.split(/\s+/).slice(0,3).join(' ') + '...';
+      };
+
+      $scope.showedDescription = controller.getShortDescription();
+
+      $scope.toggleDescription = function () {
+        $scope.longDescription=!$scope.longDescription;
+        if ($scope.longDescription) {
+          $scope.showedDescription = $scope.description;
+        }
+        else {
+          $scope.showedDescription = controller.getShortDescription();
+        }
+      };
+    },
+    template: '<p ng-bind="showedDescription" ng-click="toggleDescription()"></p>',
   };
 });
