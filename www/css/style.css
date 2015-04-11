@@ -12,13 +12,38 @@ img {
   border-radius: 5px;
 }
 
-.description {
+p.description {
   display: flex;
+  flex-direction: row;
+ /* flex-wrap: wrap;*/
 }
 
-.whitespace {
+span.whitespace {
   white-space: normal;
+  word-wrap: normal;
   line-height: 20px;
-  cursor: pointer;
+  min-width: 0;
+  flex-shrink: 30;
+}
+
+div.tag-title {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+span.tag {
+  background-color: #999;
+  color: #fff;
+  margin: 2px 3px 2px 3px;
+  padding: 0 5px 0 5px;
+  border-radius: 3px;
+}
+
+.tag.whitespace {
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 25px;
 }
 

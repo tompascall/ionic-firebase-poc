@@ -5,8 +5,10 @@
     <img ng-src="{{tutor.profilePhotoUrl}}">
     <h2 ng-bind="tutor.name"></h2>
     <i rating-stars rating="tutor.rating"></i>
-    <p><i class="icon ion-android-contacts"></i> Age Range: <span ng-bind="tutor.ageRangeLevel"></span></p>
-    <p>Specialities:<span ng-repeat="tag in tutor.tags" ng-bind="' ' + tag"></span></p>
+    <p><i class="icon ion-android-contacts"></i><strong> Age Range: </strong><span ng-bind="tutor.ageRangeLevel"></span></p>
+    <div class="tag-title">
+      <p><strong>Specialities: </strong></p><span class="tag whitespace" ng-repeat="tag in tutor.tags" ng-bind="tag"></span>
+    </div>
     <p description="tutor.description"></p>
   </ion-item>
 </ion-list>
