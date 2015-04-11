@@ -26,6 +26,7 @@ angular.module('poc', ['ionic', 'firebase'])
     rating: 5,
     ageRangeLevel: '5-11',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_01.jpg',
+    tags: ['arithmetic', 'algebra'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
@@ -34,6 +35,7 @@ angular.module('poc', ['ionic', 'firebase'])
     rating: 4,
     ageRangeLevel: '11-18',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_02.jpeg',
+    tags: ['functions', 'geometry', 'trigonometry','differentiation', 'integration'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
@@ -42,6 +44,7 @@ angular.module('poc', ['ionic', 'firebase'])
     rating: 3,
     ageRangeLevel: '18+',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_03.jpg',
+    tags: ['differentiation', 'integration'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
@@ -50,6 +53,7 @@ angular.module('poc', ['ionic', 'firebase'])
     rating: 2,
     ageRangeLevel: '11-18',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_04.jpg',
+    tags: ['trigonometry'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
@@ -58,6 +62,7 @@ angular.module('poc', ['ionic', 'firebase'])
     rating: 1,
     ageRangeLevel: '11-18',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_05.jpg',
+    tags: ['algebra', 'geometry'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
@@ -66,6 +71,7 @@ angular.module('poc', ['ionic', 'firebase'])
     rating: 0,
     ageRangeLevel: '5-11',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_07.jpeg',
+    tags: ['algebra'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
@@ -74,6 +80,7 @@ angular.module('poc', ['ionic', 'firebase'])
     rating: 1,
     ageRangeLevel: '5-11',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_06.jpg',
+    tags: ['arithmetic'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
@@ -82,6 +89,7 @@ angular.module('poc', ['ionic', 'firebase'])
     rating: 2,
     ageRangeLevel: '18+',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_08.gif',
+    tags: ['vectors', 'differentiation', 'functions'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
@@ -90,6 +98,7 @@ angular.module('poc', ['ionic', 'firebase'])
     rating: 3,
     ageRangeLevel: '18+',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_09.jpg',
+    tags: ['functions', 'vectors', 'graphs'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
@@ -98,6 +107,7 @@ angular.module('poc', ['ionic', 'firebase'])
     rating: 4,
     ageRangeLevel: '5-11',
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_10.jpg',
+    tags: ['algebra'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   }
@@ -106,7 +116,7 @@ angular.module('poc', ['ionic', 'firebase'])
 .value('maxRating', 5)
 
 .factory('TutorDataRef', function ($firebaseArray) {
-  var database = new Firebase('https://popping-fire-646.firebaseio.com/');
+  var database = new Firebase('https://pocspike.firebaseio.com/');
   var tutorRef = database.child('test/tutors/');
   return $firebaseArray(tutorRef);
 })
