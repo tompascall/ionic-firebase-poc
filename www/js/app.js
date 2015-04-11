@@ -121,9 +121,15 @@ angular.module('poc', ['ionic', 'firebase'])
   return $firebaseArray(tutorRef);
 })
 
-.controller('ToggleButton', function ($scope, $ionicSideMenuDelegate) {
-  $scope.toggleSearch = function() {
-    $ionicSideMenuDelegate.toggleLeft();
+.directive('searchButton', function () {
+  return {
+    restrict: 'E',
+    templateUrl: './template/search-button.html',
+    controller: function ($scope, $ionicSideMenuDelegate) {
+      $scope.toggleSearch = function() {
+        $ionicSideMenuDelegate.toggleLeft();
+      };
+    }
   };
 })
 
