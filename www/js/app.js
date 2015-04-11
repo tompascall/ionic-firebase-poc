@@ -5,7 +5,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('poc', ['ionic'])
+angular.module('poc', ['ionic', 'firebase'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -105,11 +105,25 @@ angular.module('poc', ['ionic'])
 
 .value('maxRating', 5)
 
-.directive('tutorList', function (tutorDataService) {
+.factory('TutorDataRef', function ($firebaseArray) {
+  var database = new Firebase('https://popping-fire-646.firebaseio.com/');
+  var tutorRef = database.child('test/tutors/');
+  return $firebaseArray(tutorRef);
+})
+
+.directive('tutorList', function (tutorDataService, TutorDataRef) {
   return {
     templateUrl: './template/tutor-list-directive.html',
     controller: function ($scope) {
-      $scope.tutors = tutorDataService;
+      $scope.tutors = TutorDataRef;
+
+      $scope.tutors.$loaded().then(function () {
+        if ($scope.tutors.length === 0) {
+          tutorDataService.forEach(function (tutor) {
+            $scope.tutors.$add(tutor);
+          });
+        }
+      });
     }
   };
 })
