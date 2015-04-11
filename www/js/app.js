@@ -1,10 +1,8 @@
-// Ionic Starter App
+// Mobile p2p App PoC
 
 'use strict';
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
+
 angular.module('poc', ['ionic', 'firebase'])
 
 .run(function($ionicPlatform) {
@@ -121,9 +119,9 @@ angular.module('poc', ['ionic', 'firebase'])
   return $firebaseArray(tutorRef);
 })
 
-.factory('SearchFactory', function () {
+.factory('searchService', function () {
   return {
-    searchBySpeciality: false
+    searchBySpeciality: ''
   };
 })
 
@@ -139,28 +137,24 @@ angular.module('poc', ['ionic', 'firebase'])
   };
 })
 
-.controller('specialityController', function ($scope) {
-})
-
-.directive('speciality', function (SearchFactory) {
+.directive('searchSideMenu', function () {
   return {
-    scope: {
-      speciality: '='
-    },
-    link: function (scope) {
-      scope.$watch('speciality', function () {
-        SearchFactory.searchBySpeciality = scope.speciality;
-      });
-    }
+    restrict: 'E',
+    templateUrl: './template/search-side-menu.html'
   };
 })
 
-.directive('tutorList', function (tutorDataService, TutorDataRef, SearchFactory) {
+.controller('searchController', function ($scope, searchService) {
+  $scope.searchService = searchService;
+})
+
+
+.directive('tutorList', function (tutorDataService, TutorDataRef, searchService) {
   return {
     templateUrl: './template/tutor-list-directive.html',
     controller: function ($scope) {
       $scope.tutors = TutorDataRef;
-      $scope.SearchFactory = SearchFactory;
+      $scope.searchService = searchService;
 
       $scope.tutors.$loaded().then(function () {
         if ($scope.tutors.length === 0) {
