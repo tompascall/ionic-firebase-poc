@@ -11,3 +11,14 @@
 img {
   border-radius: 5px;
 }
+
+.description {
+  display: flex;
+}
+
+.whitespace {
+  white-space: normal;
+  line-height: 20px;
+  cursor: pointer;
+}
+
