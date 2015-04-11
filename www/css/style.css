@@ -23,13 +23,13 @@ span.whitespace {
   flex-shrink: 30;
 }
 
-div.tag-title {
+div.speciality-title {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
 }
 
-span.tag {
+span.speciality {
   background-color: #999;
   color: #fff;
   margin: 2px 3px 2px 3px;
@@ -37,7 +37,7 @@ span.tag {
   border-radius: 3px;
 }
 
-.tag.whitespace {
+.speciality.whitespace {
   line-height: 25px;
 }
 
