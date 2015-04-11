@@ -121,6 +121,12 @@ angular.module('poc', ['ionic', 'firebase'])
   return $firebaseArray(tutorRef);
 })
 
+.controller('ToggleButton', function ($scope, $ionicSideMenuDelegate) {
+  $scope.toggleSearch = function() {
+    $ionicSideMenuDelegate.toggleLeft();
+  };
+})
+
 .directive('tutorList', function (tutorDataService, TutorDataRef) {
   return {
     templateUrl: './template/tutor-list-directive.html',

@@ -14,14 +14,32 @@
   </head>
   <body ng-app="poc">
 
-    <ion-pane>
-      <ion-header-bar class="bar-dark" align-title="center">
-        <h1 class="title">Maths Tutors</h1>
-      </ion-header-bar>
-      <ion-content>
-        <div tutor-list></div>
-      </ion-content>
-    </ion-pane>
+      <ion-side-menus>
+          <ion-side-menu-content>
+            <ion-header-bar class="bar-dark" align-title="center">
+              <button ng-controller="ToggleButton" class="button button-icon" ng-click="toggleSearch()">
+                <i class="icon ion-ios-search-strong"></i>
+              </button>
+              <h1 class="title">Maths Tutors</h1>
+            </ion-header-bar>
+            <ion-content>
+              <div tutor-list></div>
+            </ion-content>
+          </ion-side-menu-content>
+
+          <ion-side-menu side="left">
+            <ion-header-bar class="bar-dark">
+              <h1 class="title">Search</h1>
+            </ion-header-bar>
+            <ion-content>
+              <label class="item item-input item-floating-label">
+                <span class="input-label">Search by speciality</span>
+                <input type="text" placeholder="Search by speciality">
+              </label>
+            </ion-content>
+          </ion-side-menu>
+      </ion-side-menus>
+
      <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
