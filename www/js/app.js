@@ -166,7 +166,8 @@ angular.module('poc', ['ionic', 'firebase'])
       var controller = this;
       controller.longDescription = false;
       controller.getShortDescription = function () {
-        return $sce.trustAsHtml('<strong>Description: </strong>' + $scope.description.split(/\s+/).slice(0,3).join(' ') + '...');
+        return $sce.trustAsHtml('<strong>Description: </strong>' +
+          $scope.description.split(/\s+/).slice(0,3).join(' ') + '...');
       };
 
       $scope.showedDescription = controller.getShortDescription();
@@ -174,7 +175,8 @@ angular.module('poc', ['ionic', 'firebase'])
       $scope.toggleDescription = function () {
         $scope.longDescription=!$scope.longDescription;
         if ($scope.longDescription) {
-          $scope.showedDescription = $sce.trustAsHtml('<strong>Description: </strong>' + $scope.description);
+          $scope.showedDescription = $sce.trustAsHtml('<strong>Description: </strong>' +
+            $scope.description);
         }
         else {
           $scope.showedDescription = controller.getShortDescription();
