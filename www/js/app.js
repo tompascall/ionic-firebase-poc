@@ -149,7 +149,7 @@ angular.module('poc', ['ionic', 'firebase'])
 })
 
 
-.directive('tutorList', function (tutorDataService, TutorDataRef, searchService) {
+.directive('tutorList', function (tutorDataService, TutorDataRef, searchService, $ionicScrollDelegate) {
   return {
     templateUrl: './template/tutor-list-directive.html',
     controller: function ($scope) {
@@ -162,6 +162,11 @@ angular.module('poc', ['ionic', 'firebase'])
             $scope.tutors.$add(tutor);
           });
         }
+      });
+    },
+    link: function (scope) {
+      scope.$watch('searchService.searchBySpeciality', function () {
+        $ionicScrollDelegate.scrollTop();
       });
     }
   };
