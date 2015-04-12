@@ -6,7 +6,7 @@
     <h2 ng-bind="tutor.name"></h2>
     <i rating-stars rating="tutor.rating"></i>
     <p><i class="icon ion-android-contacts"></i><strong> Age Range: </strong><span ng-bind="tutor.ageRangeLevel"></span></p>
-    <div class="speciality-title">
+    <div class="specialities">
       <p><strong>Specialities: </strong></p><span class="speciality whitespace" ng-repeat="speciality in tutor.specialities" ng-bind="speciality"></span>
     </div>
     <p description="tutor.description"></p>

@@ -23,7 +23,7 @@ span.whitespace {
   flex-shrink: 30;
 }
 
-div.speciality-title {
+div.specialities {
   display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
   display: flex;
   align-items: center;
