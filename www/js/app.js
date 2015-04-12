@@ -238,29 +238,20 @@ angular.module('poc', ['ionic', 'firebase'])
 
 .directive('description', function () {
   return {
-    replace: true,
     scope: {
       description: '=',
     },
-    controller: function ($scope, $sce) {
-      var controller = this;
-      controller.longDescription = false;
-      controller.getShortDescription = function () {
-        return $sce.trustAsHtml('<strong>Description: </strong>' +
-          $scope.description.split(/\s+/).slice(0,3).join(' ') + '...');
-      };
+    controller: function ($scope) {
+      var longDescription = $scope.description;
+      var shortDescription = longDescription.split(/\s+/).slice(0, 4).join(' ') + '...';
 
-      $scope.showedDescription = controller.getShortDescription();
+      $scope.showedDescription = shortDescription;
+
+      var showLongDescription = false;
 
       $scope.toggleDescription = function () {
-        $scope.longDescription=!$scope.longDescription;
-        if ($scope.longDescription) {
-          $scope.showedDescription = $sce.trustAsHtml('<strong>Description: </strong>' +
-            $scope.description);
-        }
-        else {
-          $scope.showedDescription = controller.getShortDescription();
-        }
+        showLongDescription = !showLongDescription;
+        $scope.showedDescription = showLongDescription ? longDescription : shortDescription;
       };
     },
     templateUrl: './template/description.html'
