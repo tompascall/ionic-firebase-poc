@@ -27,7 +27,8 @@ angular.module('poc', ['ionic', 'firebase'])
     specialities: ['arithmetic', 'algebra'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    female: true
+    female: true,
+    male: false
   },
   {
     name: 'John Preston',
@@ -37,7 +38,8 @@ angular.module('poc', ['ionic', 'firebase'])
     specialities: ['functions', 'geometry', 'trigonometry','differentiation', 'integration'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    female: false
+    female: false,
+    male: true
   },
   {
     name: 'Priscilla Fowler',
@@ -47,7 +49,8 @@ angular.module('poc', ['ionic', 'firebase'])
     specialities: ['differentiation', 'integration'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    female: true
+    female: true,
+    male: false
   },
   {
     name: 'George Roberts',
@@ -57,7 +60,8 @@ angular.module('poc', ['ionic', 'firebase'])
     specialities: ['trigonometry'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    female: false
+    female: false,
+    male: true
   },
   {
     name: 'Jamie Middleton',
@@ -67,7 +71,8 @@ angular.module('poc', ['ionic', 'firebase'])
     specialities: ['algebra', 'geometry'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    female: true
+    female: true,
+    male: false
   },
   {
     name: 'Carol Henderson',
@@ -77,7 +82,8 @@ angular.module('poc', ['ionic', 'firebase'])
     specialities: ['algebra'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    female: true
+    female: true,
+    male: false
   },
   {
     name: 'Lucas Wong',
@@ -87,7 +93,8 @@ angular.module('poc', ['ionic', 'firebase'])
     specialities: ['arithmetic'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    female: false
+    female: false,
+    male: true
   },
   {
     name: 'Brian Miske',
@@ -97,7 +104,8 @@ angular.module('poc', ['ionic', 'firebase'])
     specialities: ['vectors', 'differentiation', 'functions'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    female: false
+    female: false,
+    male: true
   },
   {
     name: 'Katie Luddy',
@@ -107,7 +115,8 @@ angular.module('poc', ['ionic', 'firebase'])
     specialities: ['functions', 'vectors', 'graphs'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    female: true
+    female: true,
+    male: false
   },
   {
     name: 'John Moore',
@@ -117,11 +126,27 @@ angular.module('poc', ['ionic', 'firebase'])
     specialities: ['algebra'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
     ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    female: false
+    female: false,
+    male: true
   }
 ])
 
 .value('maxRating', 5)
+
+.filter('genderSearchFilter', function (searchService) {
+  return function (items) {
+    var filtered = [];
+    angular.forEach(items, function (item) {
+      if (searchService.male === true && item.male === true) {
+        filtered.push(item);
+      }
+      else if (searchService.female === true && item.female === true) {
+        filtered.push(item);
+      };
+    });
+    return filtered;
+  };
+})
 
 .factory('TutorDataRef', function ($firebaseArray) {
   var database = new Firebase('https://pocspike.firebaseio.com/');
@@ -131,7 +156,9 @@ angular.module('poc', ['ionic', 'firebase'])
 
 .factory('searchService', function () {
   return {
-    searchBySpeciality: ''
+    searchBySpeciality: '',
+    female: true,
+    male: true
   };
 })
 
@@ -150,7 +177,10 @@ angular.module('poc', ['ionic', 'firebase'])
 .directive('searchSideMenu', function () {
   return {
     restrict: 'E',
-    templateUrl: './template/search-side-menu.html'
+    templateUrl: './template/search-side-menu.html',
+    link: function (scope) {
+
+    }
   };
 })
 
