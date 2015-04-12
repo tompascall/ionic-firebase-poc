@@ -35,6 +35,7 @@ span.speciality {
   margin: 2px 3px 2px 3px;
   padding: 0 5px 0 5px;
   border-radius: 3px;
+  white-space: nowrap;
 }
 
 .speciality.whitespace {
