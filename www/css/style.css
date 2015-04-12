@@ -12,13 +12,32 @@ img {
   border-radius: 5px;
 }
 
-.description {
+p.description {
   display: flex;
+  flex-wrap: wrap;
 }
 
-.whitespace {
+.description .whitespace {
   white-space: normal;
   line-height: 20px;
-  cursor: pointer;
+  flex-shrink: 30;
+}
+
+.specialities {
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+}
+
+.specialities .speciality {
+  display: inline-block;
+  background-color: #999;
+  color: #fff;
+  margin: 2px 3px 2px 3px;
+  padding: 0 5px 0 5px;
+  border-radius: 3px;
+  line-height: 25px;
 }
 

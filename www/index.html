@@ -14,14 +14,19 @@
   </head>
   <body ng-app="poc">
 
-    <ion-pane>
-      <ion-header-bar class="bar-dark" align-title="center">
-        <h1 class="title">Maths Tutors</h1>
-      </ion-header-bar>
-      <ion-content>
-        <div tutor-list></div>
-      </ion-content>
-    </ion-pane>
+      <ion-side-menus>
+          <ion-side-menu-content>
+            <ion-header-bar class="bar-dark" align-title="center">
+              <search-button></search-button>
+              <h1 class="title">Maths Tutors</h1>
+            </ion-header-bar>
+            <ion-content>
+              <div tutor-list></div>
+            </ion-content>
+          </ion-side-menu-content>
+          <search-side-menu></search-side-menu>
+      </ion-side-menus>
+
      <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 

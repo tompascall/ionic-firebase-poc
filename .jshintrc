@@ -35,6 +35,7 @@
     "angular",
     "window",
     "cordova",
-    "StatusBar"
+    "StatusBar",
+    "Firebase"
   ]
 }
