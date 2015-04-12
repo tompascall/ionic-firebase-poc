@@ -24,9 +24,11 @@ span.whitespace {
 }
 
 div.speciality-title {
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  -webkit-flex-flex-wrap: wrap;
 }
 
 span.speciality {
@@ -35,7 +37,6 @@ span.speciality {
   margin: 2px 3px 2px 3px;
   padding: 0 5px 0 5px;
   border-radius: 3px;
-  white-space: nowrap;
 }
 
 .speciality.whitespace {
