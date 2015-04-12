@@ -1,0 +1,15 @@
+<ion-item class="item item-thumbnail-left" ng-repeat="tutor in tutors | filter: {specialities: searchService.searchBySpeciality} | genderSearchFilter">
+  <img ng-src="{{tutor.profilePhotoUrl}}">
+  <h2>
+    <span ng-show="tutor.female" class="icon ion-ios-rose"></span>
+    <span ng-show="!tutor.female" class="icon ion-ios-football"></span>
+    <span ng-bind="' ' + tutor.name"></span>
+  </h2>
+  <i rating-stars rating="tutor.rating"></i>
+  <p><i class="icon ion-android-contacts"></i><strong> Age Range: </strong><span ng-bind="tutor.ageRangeLevel"></span></p>
+  <p><strong>Specialities: </strong></p>
+  <div class="specialities">
+    <span class="speciality" ng-repeat="speciality in tutor.specialities" ng-bind="speciality"></span>
+  </div>
+  <p description="tutor.description"></p>
+</ion-item>

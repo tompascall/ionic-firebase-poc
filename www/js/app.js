@@ -212,6 +212,12 @@ angular.module('poc', ['ionic', 'firebase'])
   };
 })
 
+.directive('tutorItem', function () {
+  return {
+    templateUrl: './template/tutor-item-directive.html'
+  };
+})
+
 .directive('ratingStars', function (maxRating) {
   return {
     template:
