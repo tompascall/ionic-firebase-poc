@@ -26,7 +26,8 @@ angular.module('poc', ['ionic', 'firebase'])
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_01.jpg',
     specialities: ['arithmetic', 'algebra'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
-    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    female: true
   },
   {
     name: 'John Preston',
@@ -35,7 +36,8 @@ angular.module('poc', ['ionic', 'firebase'])
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_02.jpeg',
     specialities: ['functions', 'geometry', 'trigonometry','differentiation', 'integration'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
-    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    female: false
   },
   {
     name: 'Priscilla Fowler',
@@ -44,7 +46,8 @@ angular.module('poc', ['ionic', 'firebase'])
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_03.jpg',
     specialities: ['differentiation', 'integration'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
-    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    female: true
   },
   {
     name: 'George Roberts',
@@ -53,7 +56,8 @@ angular.module('poc', ['ionic', 'firebase'])
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_04.jpg',
     specialities: ['trigonometry'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
-    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    female: false
   },
   {
     name: 'Jamie Middleton',
@@ -62,7 +66,8 @@ angular.module('poc', ['ionic', 'firebase'])
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_05.jpg',
     specialities: ['algebra', 'geometry'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
-    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    female: true
   },
   {
     name: 'Carol Henderson',
@@ -71,7 +76,8 @@ angular.module('poc', ['ionic', 'firebase'])
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_07.jpeg',
     specialities: ['algebra'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
-    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    female: true
   },
   {
     name: 'Lucas Wong',
@@ -80,7 +86,8 @@ angular.module('poc', ['ionic', 'firebase'])
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_06.jpg',
     specialities: ['arithmetic'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
-    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    female: false
   },
   {
     name: 'Brian Miske',
@@ -89,7 +96,8 @@ angular.module('poc', ['ionic', 'firebase'])
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_08.gif',
     specialities: ['vectors', 'differentiation', 'functions'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
-    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    female: false
   },
   {
     name: 'Katie Luddy',
@@ -98,7 +106,8 @@ angular.module('poc', ['ionic', 'firebase'])
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_09.jpg',
     specialities: ['functions', 'vectors', 'graphs'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
-    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    female: true
   },
   {
     name: 'John Moore',
@@ -107,7 +116,8 @@ angular.module('poc', ['ionic', 'firebase'])
     profilePhotoUrl: 'https://s3-eu-west-1.amazonaws.com/profile.photo.01/animal_profile_10.jpg',
     specialities: ['algebra'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed' +
-    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    ' do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    female: false
   }
 ])
 

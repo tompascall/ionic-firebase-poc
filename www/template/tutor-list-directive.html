@@ -4,6 +4,8 @@
   <ion-item class="item item-thumbnail-left" ng-repeat="tutor in tutors | filter: {specialities: searchService.searchBySpeciality}">
     <img ng-src="{{tutor.profilePhotoUrl}}">
     <h2 ng-bind="tutor.name"></h2>
+    <p ng-show="tutor.female">female</p>
+    <p ng-show="!tutor.female">male</p>
     <i rating-stars rating="tutor.rating"></i>
     <p><i class="icon ion-android-contacts"></i><strong> Age Range: </strong><span ng-bind="tutor.ageRangeLevel"></span></p>
     <p><strong>Specialities: </strong></p>
