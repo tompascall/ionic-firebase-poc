@@ -238,11 +238,12 @@ angular.module('poc', ['ionic', 'firebase'])
 
 .directive('description', function () {
   return {
+    restrict: 'E',
     scope: {
-      description: '=',
+      tutor: '=',
     },
     controller: function ($scope) {
-      var longDescription = $scope.description;
+      var longDescription = $scope.tutor.description;
       var shortDescription = longDescription.split(/\s+/).slice(0, 4).join(' ') + '...';
 
       $scope.showedDescription = shortDescription;
