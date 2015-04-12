@@ -17,29 +17,27 @@ p.description {
   flex-wrap: wrap;
 }
 
-span.whitespace {
+.description .whitespace {
   white-space: normal;
   line-height: 20px;
   flex-shrink: 30;
 }
 
-div.specialities {
+.specialities {
   display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  -webkit-flex-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
 }
 
-span.speciality {
+.specialities .speciality {
+  display: inline-block;
   background-color: #999;
   color: #fff;
   margin: 2px 3px 2px 3px;
   padding: 0 5px 0 5px;
   border-radius: 3px;
-}
-
-.speciality.whitespace {
   line-height: 25px;
 }
 
