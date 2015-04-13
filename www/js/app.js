@@ -188,13 +188,11 @@ angular.module('poc', ['ionic', 'firebase'])
   $scope.searchService = searchService;
 })
 
-.value('showLongDescription', false)
-
 .directive('tutorList', function (tutorDataService,
                                   TutorDataRef,
                                   searchService,
                                   $ionicScrollDelegate,
-                                  showLongDescription) {
+                                  $timeout) {
   return {
     templateUrl: './template/tutor-list-directive.html',
 
@@ -202,8 +200,9 @@ angular.module('poc', ['ionic', 'firebase'])
       $scope.tutors = TutorDataRef;
       $scope.searchService = searchService;
 
-      $scope.toggleD = function () {
-        showLongDescription = !showLongDescription;
+      $scope.toggleD = function (tutor) {
+        tutor.showLongDescription = !tutor.showLongDescription;
+        console.log(tutor.name + ':' + tutor.showLongDescription);
       };
 
       $scope.tutors.$loaded().then(function () {
@@ -241,7 +240,7 @@ angular.module('poc', ['ionic', 'firebase'])
   };
 })
 
-.directive('description', function (showLongDescription) {
+.directive('description', function () {
   var longDescription;
   var shortDescription;
   return {
@@ -253,15 +252,14 @@ angular.module('poc', ['ionic', 'firebase'])
     controller: function ($scope) {
       longDescription = $scope.description;
       shortDescription = longDescription.split(/\s+/).slice(0, 4).join(' ') + '...';
-      $scope.showLongDescription = showLongDescription;
       $scope.shownDescription = shortDescription;
-
+      $scope.showLongDescription = false;
     },
     link: function (scope) {
       scope.$watch('showLongDescription', function (newValue) {
-        if (newValue) {
-          scope.shownDescription = (showLongDescription) ? longDescription : shortDescription;
-          console.log('hell: ' + showLongDescription);
+         if (newValue) {
+          scope.shownDescription = (scope.showLongDescription) ? longDescription : shortDescription;
+          console.log('hell: ' + scope.showLongDescription);
         }
       });
     }
