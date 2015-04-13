@@ -256,9 +256,9 @@ angular.module('poc', ['ionic', 'firebase'])
       $scope.tutor.showLongDescription = false;
     },
     link: function (scope) {
-      scope.$watch('tutor.showLongDescription', function (newValue) {
-         if (newValue) {
-          scope.shownDescription = (scope.tutor..showLongDescription) ? longDescription : shortDescription;
+      scope.$watch('tutor.showLongDescription', function (newValue, oldValue) {
+         if (newValue !== oldValue) {
+          scope.shownDescription = (scope.tutor.showLongDescription) ? longDescription : shortDescription;
           console.log('hell: ' + scope.tutor.showLongDescription);
         }
       });
