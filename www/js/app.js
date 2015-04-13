@@ -134,15 +134,15 @@ angular.module('poc', ['ionic', 'firebase'])
 .value('maxRating', 5)
 
 .filter('genderSearchFilter', function (searchService) {
-  return function (items) {
+  return function (tutors) {
     var filtered = [];
-    angular.forEach(items, function (item) {
-      if (searchService.male === true && item.male === true) {
-        filtered.push(item);
+    angular.forEach(tutors, function (tutor) {
+      if (searchService.male === true && tutor.male === true) {
+        filtered.push(tutor);
       }
-      else if (searchService.female === true && item.female === true) {
-        filtered.push(item);
-      };
+      else if (searchService.female === true && tutor.female === true) {
+        filtered.push(tutor);
+      }
     });
     return filtered;
   };
@@ -188,13 +188,23 @@ angular.module('poc', ['ionic', 'firebase'])
   $scope.searchService = searchService;
 })
 
+.value('showLongDescription', false)
 
-.directive('tutorList', function (tutorDataService, TutorDataRef, searchService, $ionicScrollDelegate) {
+.directive('tutorList', function (tutorDataService,
+                                  TutorDataRef,
+                                  searchService,
+                                  $ionicScrollDelegate,
+                                  showLongDescription) {
   return {
     templateUrl: './template/tutor-list-directive.html',
+
     controller: function ($scope) {
       $scope.tutors = TutorDataRef;
       $scope.searchService = searchService;
+
+      $scope.toggleD = function () {
+        showLongDescription = !showLongDescription;
+      };
 
       $scope.tutors.$loaded().then(function () {
         if ($scope.tutors.length === 0) {
@@ -204,17 +214,12 @@ angular.module('poc', ['ionic', 'firebase'])
         }
       });
     },
+
     link: function (scope) {
       scope.$watch('searchService.searchBySpeciality', function () {
         $ionicScrollDelegate.scrollTop();
       });
     }
-  };
-})
-
-.directive('tutorItem', function () {
-  return {
-    templateUrl: './template/tutor-item-directive.html'
   };
 })
 
@@ -236,25 +241,29 @@ angular.module('poc', ['ionic', 'firebase'])
   };
 })
 
-.directive('description', function () {
+.directive('description', function (showLongDescription) {
+  var longDescription;
+  var shortDescription;
   return {
     restrict: 'E',
     scope: {
-      tutor: '=',
+      description: "="
     },
+    templateUrl: './template/description.html',
     controller: function ($scope) {
-      var longDescription = $scope.tutor.description;
-      var shortDescription = longDescription.split(/\s+/).slice(0, 4).join(' ') + '...';
+      longDescription = $scope.description;
+      shortDescription = longDescription.split(/\s+/).slice(0, 4).join(' ') + '...';
+      $scope.showLongDescription = showLongDescription;
+      $scope.shownDescription = shortDescription;
 
-      $scope.showedDescription = shortDescription;
-
-      var showLongDescription = false;
-
-      $scope.toggleDescription = function () {
-        showLongDescription = !showLongDescription;
-        $scope.showedDescription = showLongDescription ? longDescription : shortDescription;
-      };
     },
-    templateUrl: './template/description.html'
+    link: function (scope) {
+      scope.$watch('showLongDescription', function (newValue) {
+        if (newValue) {
+          scope.shownDescription = (showLongDescription) ? longDescription : shortDescription;
+          console.log('hell: ' + showLongDescription);
+        }
+      });
+    }
   };
 });
