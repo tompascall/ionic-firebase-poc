@@ -191,8 +191,7 @@ angular.module('poc', ['ionic', 'firebase'])
 .directive('tutorList', function (tutorDataService,
                                   TutorDataRef,
                                   searchService,
-                                  $ionicScrollDelegate,
-                                  $timeout) {
+                                  $ionicScrollDelegate) {
   return {
     templateUrl: './template/tutor-list-directive.html',
 
@@ -200,9 +199,8 @@ angular.module('poc', ['ionic', 'firebase'])
       $scope.tutors = TutorDataRef;
       $scope.searchService = searchService;
 
-      $scope.toggleD = function (tutor) {
+      $scope.toggleDescription = function (tutor) {
         tutor.showLongDescription = !tutor.showLongDescription;
-        console.log(tutor.name + ':' + tutor.showLongDescription);
       };
 
       $scope.tutors.$loaded().then(function () {
@@ -259,7 +257,6 @@ angular.module('poc', ['ionic', 'firebase'])
       scope.$watch('tutor.showLongDescription', function (newValue, oldValue) {
          if (newValue !== oldValue) {
           scope.shownDescription = (scope.tutor.showLongDescription) ? longDescription : shortDescription;
-          console.log('hell: ' + scope.tutor.showLongDescription);
         }
       });
     }
