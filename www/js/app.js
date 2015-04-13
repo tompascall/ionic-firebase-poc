@@ -246,20 +246,20 @@ angular.module('poc', ['ionic', 'firebase'])
   return {
     restrict: 'E',
     scope: {
-      description: "="
+      tutor: "="
     },
     templateUrl: './template/description.html',
     controller: function ($scope) {
-      longDescription = $scope.description;
+      longDescription = $scope.tutor.description;
       shortDescription = longDescription.split(/\s+/).slice(0, 4).join(' ') + '...';
       $scope.shownDescription = shortDescription;
-      $scope.showLongDescription = false;
+      $scope.tutor.showLongDescription = false;
     },
     link: function (scope) {
-      scope.$watch('showLongDescription', function (newValue) {
+      scope.$watch('tutor.showLongDescription', function (newValue) {
          if (newValue) {
-          scope.shownDescription = (scope.showLongDescription) ? longDescription : shortDescription;
-          console.log('hell: ' + scope.showLongDescription);
+          scope.shownDescription = (scope.tutor..showLongDescription) ? longDescription : shortDescription;
+          console.log('hell: ' + scope.tutor.showLongDescription);
         }
       });
     }
