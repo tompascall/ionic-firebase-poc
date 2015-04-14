@@ -1,7 +1,7 @@
 <!-- tutor-list-directive -->
 
 <ion-list>
-  <ion-item class="item item-thumbnail-left" ng-repeat="tutor in tutors | filter: {specialities: searchService.searchBySpeciality} | genderSearchFilter">
+  <ion-item class="item item-thumbnail-left" ng-repeat="tutor in tutors | filter: {specialities: searchService.searchBySpeciality} | genderSearchFilter" ng-click="toggleDescription(tutor)">
     <img ng-src="{{tutor.profilePhotoUrl}}">
     <h2>
       <span ng-show="tutor.female" class="icon ion-ios-rose"></span>
@@ -14,6 +14,7 @@
     <div class="specialities">
       <span class="speciality" ng-repeat="speciality in tutor.specialities" ng-bind="speciality"></span>
     </div>
-    <p description="tutor.description"></p>
+    <p><strong>Description: </strong></p>
+    <description tutor="tutor"></description>
   </ion-item>
 </ion-list>

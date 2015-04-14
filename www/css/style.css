@@ -27,8 +27,9 @@ p.description {
   display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+
 }
 
 .specialities .speciality {
