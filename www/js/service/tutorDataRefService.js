@@ -6,4 +6,4 @@ angular.module('poc')
   var database = new Firebase('https://pocspike.firebaseio.com/');
   var tutorRef = database.child('test/tutors/');
   return $firebaseArray(tutorRef);
-})
+});

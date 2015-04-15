@@ -1,4 +1,4 @@
-'use script';
+'use strict';
 
 angular.module('poc')
 
@@ -27,4 +27,4 @@ angular.module('poc')
       });
     }
   };
-})
+});

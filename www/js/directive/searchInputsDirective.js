@@ -12,5 +12,5 @@ angular.module('poc')
     },
     controllerAs: 'ctrl',
     bindToController: true
-  }
+  };
 });

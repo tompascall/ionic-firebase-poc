@@ -113,4 +113,4 @@ angular.module('poc')
     female: false,
     male: true
   }
-])
+]);
