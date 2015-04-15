@@ -50,23 +50,6 @@ angular.module('poc', ['ionic', 'firebase'])
   };
 })
 
-.directive('ratingStars', function (maxRating) {
-  return {
-    template:
-      '<i class="icon ion-android-star" ng-repeat="star in stars" ng-class="star"></i>',
-    scope: {
-      rating: '='
-    },
-    link: function (scope, element, attrs) {
-      scope.stars = [];
-      for (var i = 0; i < maxRating; i++) {
-        scope.stars.push({
-          'filled-star': i < scope.rating
-        });
-      }
-    }
-  };
-})
 
 .directive('description', function () {
   var longDescription;
