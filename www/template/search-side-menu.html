@@ -3,12 +3,5 @@
   <ion-header-bar class="bar-dark">
     <h1 class="title">Search</h1>
   </ion-header-bar>
-  <ion-content ng-controller="searchController">
-    <label class="item item-input item-floating-label">
-      <span class="input-label">Search by speciality</span>
-      <input type="text" placeholder="Search by speciality" ng-model="searchService.searchBySpeciality">
-    </label>
-    <ion-toggle ng-model="searchService.female" ng-checked="true">Female</ion-toggle>
-    <ion-toggle ng-model="searchService.male" ng-checked="true">Male</ion-toggle>
-  </ion-content>
+  <search-inputs></search-inputs>
 </ion-side-menu>
