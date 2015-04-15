@@ -18,39 +18,6 @@ angular.module('poc', ['ionic', 'firebase'])
   });
 })
 
-.directive('tutorList', function (tutorDataService,
-                                  TutorDataRef,
-                                  searchService,
-                                  $ionicScrollDelegate) {
-  return {
-    templateUrl: './template/tutor-list-directive.html',
-
-    controller: function ($scope) {
-      $scope.tutors = TutorDataRef;
-      $scope.searchService = searchService;
-
-      $scope.toggleDescription = function (tutor) {
-        tutor.showLongDescription = !tutor.showLongDescription;
-      };
-
-      $scope.tutors.$loaded().then(function () {
-        if ($scope.tutors.length === 0) {
-          tutorDataService.forEach(function (tutor) {
-            $scope.tutors.$add(tutor);
-          });
-        }
-      });
-    },
-
-    link: function (scope) {
-      scope.$watch('searchService.searchBySpeciality', function () {
-        $ionicScrollDelegate.scrollTop();
-      });
-    }
-  };
-})
-
-
 .directive('description', function () {
   var longDescription;
   var shortDescription;
