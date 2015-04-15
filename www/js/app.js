@@ -18,10 +18,6 @@ angular.module('poc', ['ionic', 'firebase'])
   });
 })
 
-.controller('searchController', function ($scope, searchService) {
-  $scope.searchService = searchService;
-})
-
 .directive('tutorList', function (tutorDataService,
                                   TutorDataRef,
                                   searchService,
