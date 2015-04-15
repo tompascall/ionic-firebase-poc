@@ -18,59 +18,6 @@ angular.module('poc', ['ionic', 'firebase'])
   });
 })
 
-.value('maxRating', 5)
-
-.filter('genderSearchFilter', function (searchService) {
-  return function (tutors) {
-    var filtered = [];
-    angular.forEach(tutors, function (tutor) {
-      if (searchService.male === true && tutor.male === true) {
-        filtered.push(tutor);
-      }
-      else if (searchService.female === true && tutor.female === true) {
-        filtered.push(tutor);
-      }
-    });
-    return filtered;
-  };
-})
-
-.factory('TutorDataRef', function ($firebaseArray) {
-  var database = new Firebase('https://pocspike.firebaseio.com/');
-  var tutorRef = database.child('test/tutors/');
-  return $firebaseArray(tutorRef);
-})
-
-.factory('searchService', function () {
-  return {
-    searchBySpeciality: '',
-    female: true,
-    male: true
-  };
-})
-
-.directive('searchButton', function () {
-  return {
-    restrict: 'E',
-    templateUrl: './template/search-button.html',
-    controller: function ($scope, $ionicSideMenuDelegate) {
-      $scope.toggleSearch = function() {
-        $ionicSideMenuDelegate.toggleLeft();
-      };
-    }
-  };
-})
-
-.directive('searchSideMenu', function () {
-  return {
-    restrict: 'E',
-    templateUrl: './template/search-side-menu.html',
-    link: function (scope) {
-
-    }
-  };
-})
-
 .controller('searchController', function ($scope, searchService) {
   $scope.searchService = searchService;
 })
