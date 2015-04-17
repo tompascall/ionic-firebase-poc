@@ -8,13 +8,15 @@ var rename = require('gulp-rename');
 var sh = require('shelljs');
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
+var ngAnnotate = require('gulp-ng-annotate');
+var uglify = require('gulp-uglify');
 
 var paths = {
   sass: ['./scss/**/*.scss'],
   script: ['./www/js/**/*.js']
 };
 
-gulp.task('default', ['jshint']);
+gulp.task('default', ['concat-scripts']);
 
 gulp.task('jshint', function() {
   return gulp.src('./www/js/**/*.js')
@@ -34,8 +36,14 @@ gulp.task('sass', function(done) {
     .on('end', done);
 });
 
+gulp.task('concat-scripts', ['jshint'], function () {
+  return gulp.src(paths.script)
+    .pipe(concat('poc.all.js'))
+    .pipe(gulp.dest('www/build/script'));
+});
+
 gulp.task('watch', function() {
-  gulp.watch(paths.script, ['jshint']);
+  gulp.watch(paths.script, ['concat-scripts']);
 });
 
 gulp.task('install', ['git-check'], function() {
@@ -43,6 +51,18 @@ gulp.task('install', ['git-check'], function() {
     .on('log', function(data) {
       gutil.log('bower', gutil.colors.cyan(data.id), data.message);
     });
+});
+
+gulp.task('build', function () {
+  return gulp.src(paths.script)
+    .pipe(ngAnnotate({
+      single_quotes: true,
+      add: true,
+      remove: true
+    }))
+    .pipe(uglify())
+    .pipe(concat('poc.min.js'))
+    .pipe(gulp.dest('www/build/script'));
 });
 
 gulp.task('git-check', function(done) {
